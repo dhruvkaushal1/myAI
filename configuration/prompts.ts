@@ -84,3 +84,22 @@ export function HYDE_PROMPT(chat: Chat) {
     .join("\n")}
   `;
 }
+
+export function PROVIDE_FEEDBACK_PROMPT(userResponse: string) {
+  return `
+${IDENTITY_STATEMENT} ${OWNER_STATEMENT} ${OWNER_DESCRIPTION} ${AI_ROLE}
+
+Your task is to evaluate the following user response to a behavioral interview question:
+"${userResponse}"
+
+Analyze the response based on:
+- Clarity
+- Use of the STAR method (Situation, Task, Action, Result)
+- Relevance to the question
+- Demonstration of soft skills like leadership, teamwork, or problem-solving
+
+Provide specific, constructive feedback on each of the above and suggest improvements where needed.
+
+Respond with the following tone: ${AI_TONE}
+`;
+}
